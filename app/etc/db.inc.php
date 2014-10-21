@@ -7,7 +7,7 @@ $dbconfig = array ();
 
 ##主库 配置
 $dbConfig ['stra'] = array (
-		'dsn' => 'mysql:host=10.0.7.93;port=3306;',
+		'dsn' => 'mysql:host=127.0.0.1;port=3306;',
 		'user' => 'stradev',
 		'password' => 'stradev',
 		'database' => 'stra',
@@ -16,7 +16,7 @@ $dbConfig ['stra'] = array (
 
 ##日志配置
 $dbConfig ['log'] = array (
-		'dsn' => 'mysql:host=10.0.7.93;port=3306;',
+		'dsn' => 'mysql:host=127.0.0.1;port=3306;',
 		'user' => 'stra',
 		'password' => 'stradev',
 		'database' => 'stra_logs',
@@ -24,7 +24,7 @@ $dbConfig ['log'] = array (
 );
 ## gm 配置
 $dbConfig ['gm'] = array (
-		'dsn' => "mysql:host=10.0.7.93;port=3306;", // 数据库连接字符串
+		'dsn' => "mysql:host=127.0.0.1;port=3306;", // 数据库连接字符串
 		'database' => "stra_gm", // 数据库
 		'user' => "stradev", // 登陆用户
 		'password' => "stradev", // 登陆密码
@@ -35,13 +35,13 @@ $dbConfig ['gm'] = array (
 ##用户 库配置
 $dbConfig ['user'] = array (
 		'dsn' => array (
-				0=>"mysql:host=10.0.7.93;port=3306;",
-				1=>"mysql:host=10.0.7.93;port=3306;",
-				2=>"mysql:host=10.0.7.93;port=3306;",
-				3=>"mysql:host=10.0.7.93;port=3306;",
-				4=>"mysql:host=10.0.7.93;port=3306;",
-				5=>"mysql:host=10.0.7.93;port=3306;",
-				6=>"mysql:host=10.0.7.93;port=3306;",    // 非分库应用不要配置 成 数组 形式 
+				0=>"mysql:host=127.0.0.1;port=3306;",
+				1=>"mysql:host=127.0.0.1;port=3306;",
+				2=>"mysql:host=127.0.0.1;port=3306;",
+				3=>"mysql:host=127.0.0.1;port=3306;",
+				4=>"mysql:host=127.0.0.1;port=3306;",
+				5=>"mysql:host=127.0.0.1;port=3306;",
+				6=>"mysql:host=127.0.0.1;port=3306;",    // 非分库应用不要配置 成 数组 形式 
 		), // 数据库连接字符串
 		'dbIdx' => "0:0,1:0,2:0,3:0,4:0,5:0", // x:x 第一位表示数据库扩展索引 ，第二个表示上边配置的服务器索引 警告 非分库应用不要配置 成 数组 形式 
 		'database' => 'stra', // 数据库
@@ -53,7 +53,7 @@ $dbConfig ['user'] = array (
 
 ## 索引库配置
 $dbConfig ['stra_index'] = array (
-		'dsn' =>"mysql:host=10.0.7.93;port=3306;", // 数据库连接字符串
+		'dsn' =>"mysql:host=127.0.0.1;port=3306;", // 数据库连接字符串
 		'database' => 'stra_index', // 数据库
 		'user' => "stradev", // 登陆用户
 		'password' => "stradev", // 登陆密码
@@ -62,7 +62,7 @@ $dbConfig ['stra_index'] = array (
 );
 
 $dbConfig ['strategy'] = array (
-		'dsn' =>"mysql:host=10.0.7.93;port=3306;", // 数据库连接字符串
+		'dsn' =>"mysql:host=127.0.0.1;port=3306;", // 数据库连接字符串
 		'database' => 'strategy', // 数据库
 		'user' => "stradev", // 登陆用户
 		'password' => "stradev", // 登陆密码

@@ -18,7 +18,7 @@ $staticServers = array (
 		array (
 		'server_id' => '1',
 		'server_name' => '静态服务器',
-		'server_url' => 'http://static.zq.9wee.com',
+		'server_url' => 'http://127.0.0.1',
 		'server_type' => 'remote',
 		'ftp_ip' => '192.168.0.8',
 		'ftp_port' => '24',
