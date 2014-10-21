@@ -1,0 +1,41 @@
+{{include file="../header.html"}}
+
+	<body style="top:0px; left:0px;">
+		{{if $page gt 1}}
+		<a href="login.php?act=inform_all&page={{$prev}}">前一页</a>
+		{{else}}
+		前一页
+		{{/if}}
+		&nbsp;&nbsp;{{$page}}/{{$page_all}}&nbsp;&nbsp;
+		{{if $page lt $page_all}}
+		<a href="login.php?act=inform_all&page={{$next}}">后一页</a>
+		{{else}}
+		后一页
+		{{/if}}
+		<br /><br />
+
+		{{foreach from=$inform_all item=inform_all_i}}
+			<a href="login.php?act=inform&inform_id={{$inform_all_i.inform_id}}">{{$inform_all_i.adddate}}&nbsp;{{$inform_all_i.title}}</a>
+			<br />
+		{{/foreach}}
+
+		<br />
+
+		{{if $page gt 1}}
+		<a href="login.php?act=inform_all&page={{$prev}}">前一页</a>
+		{{else}}
+		前一页
+		{{/if}}
+		&nbsp;&nbsp;{{$page}}/{{$page_all}}&nbsp;&nbsp;
+		{{if $page lt $page_all}}
+		<a href="login.php?act=inform_all&page={{$next}}">后一页</a>
+		{{else}}
+		后一页
+		{{/if}}
+
+		<br /><br />
+
+		<a href="login.php?act=login">游戏首页</a>
+	</body>
+
+{{include file="../footer.html"}}

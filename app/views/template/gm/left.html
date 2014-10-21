@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBliC "-//W3C//DTD XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href="{{$ui_path}}axurerpprototype.css" type="text/css" rel="stylesheet">
+		<script language="JavaScript">
+			
+		</script>
+	</head>
+
+	<body>
+		<table style="margin:10px auto;">
+			<tr>
+				<td width="140" align="left" valign="top" class='side_col'>
+					{{foreach from=$module_list item=module_list_item}}
+						<div class='box'>
+							<div class='heading'>
+								<h2>{{$module_list_item.oneself.module_name}}</h2>
+							</div>
+							<div class='container'>
+								<ul class='side_nav'>
+									{{foreach from=$module_list_item.child item=child_list_item}}
+										<li>
+											<div>
+												<a href="{{$child_list_item.oneself.module_url}}" target="mainFrame">{{$child_list_item.oneself.module_name}}</a>
+											</div>
+										</li>
+									{{/foreach}}
+								</ul>
+							</div>
+							<div class='footing'></div>
+						</div>
+					{{/foreach}}
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

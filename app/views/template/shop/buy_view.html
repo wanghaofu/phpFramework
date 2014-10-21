@@ -1,0 +1,42 @@
+{{include file="../header.html"}}
+
+	<body style="top:0px; left:0px;">
+		<pre>
+			<form action="shop.php" method="post">
+				<input type="hidden" name="act" value="buy_action" />
+				<input type="hidden" name="shop_id" value="{{$shop.shop_id}}" />
+				<input type="hidden" name="num" value="{{$num}}" />
+				{{$shop.name}}
+				金额：{{$shop.price}}&nbsp;&nbsp;
+				{{if $shop.is_gree eq 0}}
+					ミリタリーコイン専用
+				{{else}}
+					GREE専用
+				{{/if}}
+				所持数：99個
+
+				该物品购入{{$num}}个
+
+				{{if $shop.is_gree eq 0}}
+					ミリタリーコイン
+				{{else}}
+					GREE
+				{{/if}}
+				{{$price_all}}
+
+				{{if $shop.is_gree eq 0}}
+					ミリタリーコイン
+				{{else}}
+					GREE
+				{{/if}}
+				：{{$price_old}}->{{$price_new}}
+
+				<input type="submit" value="購入する" />
+			</form>
+			<a href="shop.php?act=list">キャンセル</a>
+		</pre>
+
+		<a href="login.php?act=login">大戦略トップへ</a>
+	</body>
+
+{{include file="../footer.html"}}

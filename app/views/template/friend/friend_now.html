@@ -1,0 +1,60 @@
+{{include file="../header.html"}}
+
+	<body style="top:0px; left:0px;">
+		<pre>
+		友軍の上限：{{$num_max}}&nbsp;&nbsp;現在の友軍数：{{$num_now}}
+<!--
+		<a href="friend.php?act=manual_search">友軍にするﾌﾟﾚｲﾔｰを探す</a>
+
+		<a href="friend.php?act=auto_search">おまかせで申請する</a>
+-->
+		{{if $num_ing > 0}}
+			<a href="friend.php?act=friend_ing">申請中の友軍{{$num_ing}}人</a>
+		{{/if}}
+		
+			友軍{{$num_now}}人
+
+			{{if $page gt 1}}
+			<a href="friend.php?act=friend_now&page={{$prev}}">←前へ</a>
+			{{else}}
+			←前へ
+			{{/if}}
+			&nbsp;&nbsp;{{$page}}/{{$page_all}}&nbsp;&nbsp;
+			{{if $page lt $page_all}}
+			<a href="friend.php?act=friend_now&page={{$next}}">次へ→</a>
+			{{else}}
+			次へ→
+			{{/if}}
+
+			{{foreach from=$friend_now item=friend_now_i}}
+				uuid:{{$friend_now_i.uuid}}
+				nickname：{{$friend_now_i.nickname}}
+				level：{{$friend_now_i.level}}
+				exp：{{$friend_now_i.exp}}
+				coin：{{$friend_now_i.coin}}
+				energy：{{$friend_now_i.energy}}
+				hp：{{$friend_now_i.hp}}
+				max_soldier_count：{{$friend_now_i.max_soldier_count}}
+				max_energy_count：{{$friend_now_i.max_energy_count}}
+				max_cost_count：{{$friend_now_i.max_cost_count}}
+				max_friend_count：{{$friend_now_i.max_friend_count}}
+				next_exp：{{$friend_now_i.next_exp}}
+			{{/foreach}}
+
+			{{if $page gt 1}}
+			<a href="friend.php?act=friend_now&page={{$prev}}">←前へ</a>
+			{{else}}
+			←前へ
+			{{/if}}
+			&nbsp;&nbsp;{{$page}}/{{$page_all}}&nbsp;&nbsp;
+			{{if $page lt $page_all}}
+			<a href="friend.php?act=friend_now&page={{$next}}">次へ→</a>
+			{{else}}
+			次へ→
+			{{/if}}
+		</pre>
+
+		<a href="login.php?act=login">大戦略トップへ</a>
+	</body>
+
+{{include file="../footer.html"}}

@@ -1,0 +1,16 @@
+<!-- 确认框 -->
+<table class="box" style="width:500px">
+	<tr>
+		<td align="center"><table align="center"><tr><td align="left" class="message">{{$message}}</td></tr></table></td>
+	</tr>
+	<tr>
+		<td class="buttons">
+			{{foreach key=key item=item from=$scriptCode}}<input name="confirm_button" type="button" onclick='this.blur(); {{$item|escape:"html"}}' value="{{if $scriptText.$key!=''}}{{$scriptText.$key}}{{elseif $key==0}}{{$lang.ok}}{{elseif $key==1}}{{$lang.cancel}}{{/if}}" />{{/foreach}}
+		</td>
+	</tr>
+</table>
+<script type="text/javascript">
+<!--
+setFocus ( 'confirm_button' );
+//-->
+</script>

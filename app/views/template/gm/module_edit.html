@@ -1,0 +1,46 @@
+<!DOCtype html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<script src="{{$ui_path}}jquery.js" type="text/javascript"></script>
+		<script language="JavaScript">
+			<!--
+			$(function()
+			{
+				$("#myForm").submit
+				(
+					function()
+					{
+						var module_grade = $("#parent_id option:selected").attr("module_grade");
+						module_grade = parseInt(module_grade);
+						$("#module_grade").val(module_grade+1);
+					}
+				);
+			});
+			-->
+		</script>
+	</head>
+	
+	<body>
+		<form method="post" action="Module.php" id="myForm">
+			<input type="hidden" name="type" value="editAction" />
+			<input type="hidden" name="module_id" value="{{$module_id}}" />
+			<input type="hidden" name="module_grade" id="module_grade" value="{{$module_grade}}" />
+			模块名称：&nbsp;
+			<input type="text" name="module_name" id="module_name" value="{{$module_name}}" />
+			<br /><br />
+			功能模块URL：&nbsp;
+			<input type="text" name="module_url" id="module_url" value="{{$module_url}}" />
+			<br /><br />
+			父级模块：&nbsp;
+			<select name="parent_id" id="parent_id">
+				<option value="0" module_grade="0">一级模块</option>
+				{{foreach from=$module_all item=module_all_item}}
+					<option value="{{$module_all_item.module_id}}" module_grade="{{$module_all_item.module_grade}}" {{if $module_all_item.module_id eq $parent_id}}selected="selected"{{/if}}>{{$module_all_item.module_name}}</option>
+				{{/foreach}}
+			</select>
+			<br /><br />
+			<input type="submit" value="提交" />&nbsp;&nbsp;<input type="reset" value="重置" />
+		</form>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+{{include file="../header.html"}}
+
+<body>
+<pre>
+士官统称：{{$uSoldier.soldier_nickname}}
+士官名：{{$uSoldier.soldier_name}}
+士官LV：{{$uSoldier.level}}
+士官经验值：{{$uSoldier.exp}}
+士官配属成本：{{$uSoldier.cost}}
+士官ICON：{{$uSoldier.icon}}
+兵器名称：{{$uSoldier.weapon_name}}&nbsp;+{{$uSoldier.weapon_level}}
+攻击力：{{$uSoldier.attack}}
+防御力：{{$uSoldier.defense}}
+武器数：{{$uSoldier.weapon_count}}
+特殊技能名：{{$uSoldier.skill_name}}
+特殊技能LV：{{$uSoldier.skill_level}}
+特殊技能描述：{{$uSoldier.skill_description}}
+士官描述：{{$uSoldier.soldier_description}}
+
+{{if $allow eq 'yes'}}
+改造手册
+持有量：99个
+兵器的攻击力和防御力分别+1
+
+<a href="soldier.php?op=act::streAction;sid::{{$uSoldier.id}}">使用改造手册</a>
+{{else}}
+改造上限已满，无法继续改造！
+{{/if}}
+
+<a href="soldier.php?op=act::show;sid::{{$uSoldier.id}}">士官情报</a>
+</pre>
+</body>
+
+{{include file="../footer.html"}}

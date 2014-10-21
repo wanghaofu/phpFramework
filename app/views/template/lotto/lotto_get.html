@@ -1,0 +1,64 @@
+{{include file="../header.html"}}
+
+	<body>
+		<pre>
+			士官统称：{{$uSoldier.soldier_nickname}}
+			士官名：{{$uSoldier.soldier_name}}
+			士官LV：{{$uSoldier.level}}
+			士官经验值：{{$uSoldier.exp}}
+			士官配属成本：{{$uSoldier.cost}}
+			士官ICON：{{$uSoldier.icon}}
+			兵器名称：{{$uSoldier.weapon_name}}
+			攻击力：{{$uSoldier.attack * $uSoldier.weapon_count}}
+			防御力：{{$uSoldier.defense * $uSoldier.weapon_count}}
+			武器数：{{$uSoldier.weapon_count}}
+			特殊技能名：{{$uSoldier.skill_name}}
+			特殊技能LV：{{$uSoldier.skill_level}}
+			特殊技能描述：{{$uSoldier.skill_description}}
+			士官描述：{{$uSoldier.soldier_description}}
+
+			{{if $armyFlag == 1}}
+			<a href="http://www.baidu.com">この士官を強化する</a>
+			<a href="soldier.php?op=act::leader;aid::{{$army_id}};sid::{{$uSoldier.id}}">この士官をリーダーにする</a>
+			<a href="army.php?op=act::show;id::{{$army_id}}">部隊編成に戻る</a>
+			<a href="army.php?op=act::list">部隊一覧に戻る</a>
+			{{/if}}
+
+		</pre>
+		<br />
+
+		{{if $lotto_type eq 1}}
+			午休抽奖
+			<br />
+			<a href="lotto.php?act=lottoBefore&type=1">免费抽奖</a>
+		{{else if $lotto_type eq 2}}
+			每日一次免费抽奖
+			<br />
+			<a href="lotto.php?act=lottoBefore&type=2">免费抽奖</a>
+		{{else}}
+			友军PT
+			<br />
+			<a href="lotto.php?act=lottoBefore&type=3">免费抽奖</a>
+		{{/if}}
+		
+		<br />
+
+		军资金：9999
+		<br />
+		士官数：10/99
+		<br />
+
+		出售本士官卡牌可以获得军资金1000
+		<br />
+		<a href="">出售</a>
+		<br />
+
+		<a href="">摇奖首页</a>
+		<br />
+		<a href="">我的首页</a>
+		<br />
+		<a href="">游戏首页</a>
+		<br />
+	</body>
+
+{{include file="../footer.html"}}

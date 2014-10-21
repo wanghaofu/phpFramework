@@ -1,0 +1,44 @@
+<!DOCtype html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<script src="{{$ui_path}}jquery.js" type="text/javascript"></script>
+		<script language="JavaScript">
+			<!--
+			$(function()
+			{
+				$("#check_all").click
+				(
+					function()
+					{
+						var check = $(this).attr("checked");
+						$(".checkbox_list").each
+						(
+							function()
+							{
+								$(this).attr("checked", check);
+							}
+						);
+					}
+				);
+			});
+			-->
+		</script>
+	</head>
+	
+	<body>
+		<form method="post" action="Position.php" id="myForm">
+			<input type="hidden" name="type" value="addAction" />
+			职位名称：&nbsp;
+			<input type="text" name="position_name" id="position_name" value="" />
+			<br /><br />
+			功能模块列表：&nbsp;
+			<input type="checkbox" id="check_all" />&nbsp;全选&nbsp;&nbsp;&nbsp;
+			{{foreach from=$module_all item=module_all_item}}
+				<input type="checkbox" class="checkbox_list" name="module_list_arr[]" value="{{$module_all_item.module_id}}" />&nbsp;{{$module_all_item.module_name}}&nbsp;&nbsp;&nbsp;
+			{{/foreach}}
+			<br /><br />
+			<input type="submit" value="提交" />&nbsp;&nbsp;<input type="reset" value="重置" />
+		</form>
+	</body>
+</html>

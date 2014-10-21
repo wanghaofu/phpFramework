@@ -1,0 +1,17 @@
+<!-- 操作完成消息框 -->
+<table class="box" style="width:500px">
+	<tr>
+		<td align="center"><table align="center"><tr><td align="left" class="message">[$message]</td></tr></table></td>
+	</tr>
+	<tr>
+		<td class="buttons">
+			<input name="message_button" type="button" onclick='this.blur();[@escape($scriptCode)]'
+				value="<if test="$scriptText">[$scriptText]<else>确定</if>" />
+		</td>
+	</tr>
+</table>
+<script type="text/javascript">
+<!--
+setFocus ( 'message_button' );
+//-->
+</script>

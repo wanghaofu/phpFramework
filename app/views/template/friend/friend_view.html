@@ -1,0 +1,20 @@
+{{include file="../header.html"}}
+
+	<body style="top:0px; left:0px;">
+		<pre>
+			友軍申請
+
+			<form method="POST" action="friend.php">
+				<input type="hidden" name="act" value="friend_action" />
+				<input type="hidden" name="friend_id" value="{{$friend_id}}" />
+				<input type="text" name="content" value="よろしくお願いします！" />
+				<input type="submit" value="友軍申請する" />
+			</form>
+
+			ここに友軍申請の説明文や注意書きが入ります。
+		</pre>
+
+		<a href="login.php?act=login">大戦略トップへ</a>
+	</body>
+
+{{include file="../footer.html"}}

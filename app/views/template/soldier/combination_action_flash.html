@@ -1,0 +1,22 @@
+{{include file="../header.html"}}
+
+<body>
+	<div style="height:300px;width:200px;">
+		<object data="{{$ui_path}}/flash/placeholder.swf" type="application/x-shockwave-flash" width="240" height="240">
+			<param name="loop" value="off" />
+			<param name="quality" value="high" />
+		</object>
+	</div>
+	<a href="soldier.php?act=combAction&sid_main={{$sid_main}}&sid_assist={{$sid_assist}}">继续</a>
+
+	<form method="POST" action="soldier.php">
+		<input type="hidden" name="act" value="combAction" />
+		<input type="hidden" name="sid_main" value="{{$sid_main}}" />
+		{{foreach from=$sid_assist_arr item=sid_assist}}
+			<input type="hidden" name="sid_assist[]" value="{{$sid_assist}}" />
+		{{/foreach}}
+		<input type="submit" value="继续" />
+	</form>
+</body>
+
+{{include file="../footer.html"}}

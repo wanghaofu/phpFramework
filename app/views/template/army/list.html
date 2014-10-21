@@ -1,0 +1,161 @@
+{{include file="../header.html"}}
+<body style="background-color:#262626;color:#FFFFFF;">
+
+<br>
+
+<img src="{{$StaticBaseUrl}}/common/misc/px_C79395.gif" width="100%" height="1" />
+
+<!--No.1-->
+<div style="background-color:#7A2629;text-align:center;"><span style="font-size:small;">第1部隊</span></div>
+<!--army body start-->
+{{if $uArmy_1.flag eq 1}}
+<div style="background-color:#9D3134;text-align:center;">
+	<table width="100%" border="0" cellspacing="0" cellpadding="2" align="center">
+      <tr>
+	  	{{foreach from=$uArmy_1.member key=key item=soldier}}
+        <td width="33%" align="center"><img src="{{$StaticBaseUrl}}/common/avatars/{{$soldier.soldier_gf}}" alt="" width="46" height="62" /></td>
+        {{/foreach}}
+      </tr>
+      
+      <tr>  
+	 	{{foreach from=$uArmy_1.member key=key item=soldier}}      
+        <td>
+            <div style="background-color:#59AB1A;text-align:center;">
+        		<span style="font-size:x-small">{{$soldier.weapon_count}}/{{$soldier.weapon_count_limit}}</span>
+        	</div>
+		</td>
+        {{/foreach}}
+      
+      </tr>
+    </table>
+    
+    <table border="1" bordercolor="#000000" cellpadding="0" cellspacing="0" width="96%" align="center">
+      	<tr>
+        <td width="12%" bgcolor="#E46C0A" align="center"><span style="font-size:x-small;">ｺｽﾄ</span></td>
+        <td width="21%" bgcolor="#262626" align="center"><span style="font-size:x-small;">{{$uArmy_1.armyCost}}/{{$uArmy_1.uCost}}</span></td>
+        <td width="12%" bgcolor="#AF3438" align="center"><span style="font-size:x-small;">総攻</span></td>
+        <td width="21%" bgcolor="#262626" align="center"><span style="font-size:x-small;">{{$uArmy_1.attack}}</span></td>
+        <td width="12%" bgcolor="#4BACC6" align="center"><span style="font-size:x-small;">総防</span></td>
+        <td width="22%" bgcolor="#262626" align="center"><span style="font-size:x-small;">{{$uArmy_1.defense}}</span></td>
+      	</tr>
+    </table>
+</div>
+<div>
+{{if $warPageFlag eq 1}}
+*<a href="army.php?op=act::auto_do;id::{{$uArmy_1.army_id}}"><span style="font-size:x-small">出撃する</span></a><br>
+{{/if}}
+{{/if}}
+
+{{if $armyPageFlag eq 1}}
+*<a href="army.php?op=act::show;id::{{$uArmy_1.army_id}}"><span style="font-size:x-small">部隊を編成する</span></a><br>
+*<a href="army.php?op=act::auto_do;id::{{$uArmy_1.army_id}}"><span style="font-size:x-small">おまかせ編成</span></a><br>
+{{/if}}
+</div>
+<br>
+
+
+<!--No.2-->
+<div style="background-color:#6E6031;text-align:center;"><span style="font-size:small;">第2部隊</span></div>
+<!--army body start-->
+{{if $uArmy_2.flag eq 1}}
+<div style="background-color:#867848;text-align:center;">
+	<table width="100%" border="0" cellspacing="0" cellpadding="2" align="center">
+      <tr>
+	  	{{foreach from=$uArmy_2.member key=key item=soldier}}
+        <td width="33%" align="center"><img src="{{$StaticBaseUrl}}/common/avatars/{{$soldier.soldier_gf}}" alt="" width="46" height="62" /></td>
+        {{/foreach}}
+      </tr>
+      
+      <tr>  
+	 	{{foreach from=$uArmy_2.member key=key item=soldier}}      
+        <td>
+            <div style="background-color:#59AB1A;text-align:center;">
+        		<span style="font-size:x-small">{{$soldier.weapon_count}}/{{$soldier.weapon_count_limit}}</span>
+        	</div>
+		</td>
+        {{/foreach}}
+      
+      </tr>
+    </table>
+    
+    <table border="1" bordercolor="#000000" cellpadding="0" cellspacing="0" width="96%" align="center">
+      	<tr>
+        <td width="12%" bgcolor="#E46C0A" align="center"><span style="font-size:x-small;">ｺｽﾄ</span></td>
+        <td width="21%" bgcolor="#262626" align="center"><span style="font-size:x-small;">{{$uArmy_2.armyCost}}/{{$uArmy_2.uCost}}</span></td>
+        <td width="12%" bgcolor="#AF3438" align="center"><span style="font-size:x-small;">総攻</span></td>
+        <td width="21%" bgcolor="#262626" align="center"><span style="font-size:x-small;">{{$uArmy_2.attack}}</span></td>
+        <td width="12%" bgcolor="#4BACC6" align="center"><span style="font-size:x-small;">総防</span></td>
+        <td width="22%" bgcolor="#262626" align="center"><span style="font-size:x-small;">{{$uArmy_2.defense}}</span></td>
+      	</tr>
+    </table>
+</div>
+<div>
+{{if $armyPageFlag eq 1}}
+*<a href="army.php?op=act::priority_do;id::{{$uArmy_2.army_id}}"><span style="font-size:x-small">この部隊を第1部隊に変更する</span></a><br>
+{{/if}}
+{{if $warPageFlag eq 1}}
+*<a href="army.php?op=act::auto_do;id::{{$uArmy_2.army_id}}"><span style="font-size:x-small">出撃する</span></a><br>
+{{/if}}
+{{/if}}
+
+{{if $armyPageFlag eq 1}}
+*<a href="army.php?op=act::show;id::{{$uArmy_2.army_id}}"><span style="font-size:x-small">部隊を編成する</span></a><br>
+*<a href="army.php?op=act::auto_do;id::{{$uArmy_2.army_id}}"><span style="font-size:x-small">おまかせ編成</span></a><br>
+{{/if}}
+</div>
+<br>
+
+
+<!--No.3-->
+<div style="background-color:#216573;text-align:center;"><span style="font-size:small;">第3部隊</span></div>
+<!--army body start-->
+{{if $uArmy_3.flag eq 1}}
+<div style="background-color:#3C8493;text-align:center;">
+	<table width="100%" border="0" cellspacing="0" cellpadding="2" align="center">
+      <tr>
+	  	{{foreach from=$uArmy_3.member key=key item=soldier}}
+        <td width="33%" align="center"><img src="{{$StaticBaseUrl}}/common/avatars/{{$soldier.soldier_gf}}" alt="" width="46" height="62" /></td>
+        {{/foreach}}
+      </tr>
+      
+      <tr>  
+	 	{{foreach from=$uArmy_3.member key=key item=soldier}}      
+        <td>
+            <div style="background-color:#59AB1A;text-align:center;">
+        		<span style="font-size:x-small">{{$soldier.weapon_count}}/{{$soldier.weapon_count_limit}}</span>
+        	</div>
+		</td>
+        {{/foreach}}
+      
+      </tr>
+    </table>
+    
+    <table border="1" bordercolor="#000000" cellpadding="0" cellspacing="0" width="96%" align="center">
+      	<tr>
+        <td width="12%" bgcolor="#E46C0A" align="center"><span style="font-size:x-small;">ｺｽﾄ</span></td>
+        <td width="21%" bgcolor="#262626" align="center"><span style="font-size:x-small;">{{$uArmy_3.armyCost}}/{{$uArmy_3.uCost}}</span></td>
+        <td width="12%" bgcolor="#AF3438" align="center"><span style="font-size:x-small;">総攻</span></td>
+        <td width="21%" bgcolor="#262626" align="center"><span style="font-size:x-small;">{{$uArmy_3.attack}}</span></td>
+        <td width="12%" bgcolor="#4BACC6" align="center"><span style="font-size:x-small;">総防</span></td>
+        <td width="22%" bgcolor="#262626" align="center"><span style="font-size:x-small;">{{$uArmy_3.defense}}</span></td>
+      	</tr>
+    </table>
+</div>
+<div>
+{{if $armyPageFlag eq 1}}
+*<a href="army.php?op=act::priority_do;id::{{$uArmy_3.army_id}}"><span style="font-size:x-small">この部隊を第1部隊に変更する</span></a><br>
+{{/if}}
+{{if $warPageFlag eq 1}}
+*<a href="army.php?op=act::auto_do;id::{{$uArmy_3.army_id}}"><span style="font-size:x-small">出撃する</span></a><br>
+{{/if}}
+{{/if}}
+
+{{if $armyPageFlag eq 1}}
+*<a href="army.php?op=act::show;id::{{$uArmy_3.army_id}}"><span style="font-size:x-small">部隊を編成する</span></a><br>
+*<a href="army.php?op=act::auto_do;id::{{$uArmy_3.army_id}}"><span style="font-size:x-small">おまかせ編成</span></a><br>
+{{/if}}
+</div>
+<!--army body end-->
+
+</body>
+{{include file="../footer.html"}}

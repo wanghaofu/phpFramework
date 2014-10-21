@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+function newArmy()
+{
+	window.location.href = "army.php?act=soldier_list";
+}
+
+function editArmy(armyid)
+{
+	
+}
+
+function delArmy(armyid)
+{
+	if(confirm("确定要删除部队吗？")) {
+		window.location.href = "army.php?act=army_do&action=3&id="+armyid;
+	}
+}
+</script>
+</head>
+
+<body>
+<input type="button" id="newArmy" value="新建部队" onclick="javascript:newArmy();" />
+<br /><br />
+
+{{foreach from=$userArmies key=key item=army}}
+<div style="border:dashed 1px">
+{{section name=key loop=$army}}
+<textarea cols="15" rows="10" id="t1" name="t1">
+ID：{{$army[key].id}}
+士官ID：{{$army[key].soldierid}}
+部队ID：{{$army[key].armyid}}
+等级：{{$army[key].level}}
+经验：{{$army[key].exp}}
+攻击力：{{$army[key].attack}}
+防御力：{{$army[key].defense}}
+耐久度：{{$army[key].hp}}
+武器：{{$army[key].weapons}}
+</textarea>
+{{/section}}
+<input type="button" id="delArmy" value="删除部队" onclick="javascript:delArmy({{$key}});" />
+</div>
+{{/foreach}}
+</body>
+</html>

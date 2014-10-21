@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<pre>
+作战名：{{$battle_name}}
+任务名：{{$uMission.mission_name}}
+进军率：{{$uMission.schedule}}
+
+行动值：{{$uSession.energy}}
+经验值：{{$uSession.exp}}
+军资金：{{$uSession.coin}}
+LV:{{$uSession.level}}
+
+可获得卡片：{{$uMission.prize_card}}
+
+获得卡片记录：{{$uMission.prize_card_record}}
+
+<a href="mission.php?op=act::mission_do;bid::{{$battle_id}};mid::{{$uMission.mission_id}}">
+进军
+</a>
+</pre>
+</body>
+</html>

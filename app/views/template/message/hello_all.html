@@ -1,0 +1,39 @@
+{{include file="../header.html"}}
+
+	<body style="top:0px; left:0px;">
+		<pre>
+		{{if $page gt 1}}
+		<a href="message.php?act=hello_all&page={{$prev}}">←前へ</a>
+		{{else}}
+		←前へ
+		{{/if}}
+		&nbsp;&nbsp;{{$page}}/{{$page_all}}&nbsp;&nbsp;
+		{{if $page lt $page_all}}
+		<a href="message.php?act=hello_all&page={{$next}}">次へ→</a>
+		{{else}}
+		次へ→
+		{{/if}}
+
+		{{foreach from=$friend item=friend_i}}
+			<a href="">{{$friend_i.nickname}}</a>
+			{{$friend_i.adddate}}
+			{{$friend_i.content}}
+		{{/foreach}}
+		
+		{{if $page gt 1}}
+		<a href="message.php?act=hello_all&page={{$prev}}">←前へ</a>
+		{{else}}
+		←前へ
+		{{/if}}
+		&nbsp;&nbsp;{{$page}}/{{$page_all}}&nbsp;&nbsp;
+		{{if $page lt $page_all}}
+		<a href="message.php?act=hello_all&page={{$next}}">次へ→</a>
+		{{else}}
+		次へ→
+		{{/if}}
+		
+		<a href="login.php?act=login">大戦略トップへ</a>
+		</pre>
+	</body>
+
+{{include file="../footer.html"}}

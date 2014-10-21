@@ -1,0 +1,66 @@
+{{include file="../header.html"}}
+
+	<body style="top:0px; left:0px;">
+		<pre>
+			課金：
+			{{foreach from=$shop1 item=shop1_i}}
+			<form action="shop.php" method="post">
+				<input type="hidden" name="act" value="buy_view" />
+				<input type="hidden" name="shop_id" value="{{$shop1_i.shop_id}}" />
+				{{$shop1_i.name}}
+				金額：{{$shop1_i.price}}&nbsp;&nbsp;GREE専用
+				所持数：99個
+
+				<select name="num">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select>
+
+				説明文
+
+				<input type="submit" value="購入する" />
+			</form>
+			{{/foreach}}
+
+
+			ミリタリーコイン：
+			{{foreach from=$shop0 item=shop0_i}}
+			<form action="shop.php" method="post">
+				<input type="hidden" name="act" value="buy_view" />
+				<input type="hidden" name="shop_id" value="{{$shop0_i.shop_id}}" />
+				{{$shop0_i.name}}
+				金额：{{$shop0_i.price}}&nbsp;&nbsp;ミリタリーコイン専用
+				所持数：99個
+
+				<select name="num">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select>
+
+				説明文
+
+				<input type="submit" value="購入する" />
+			</form>
+			{{/foreach}}
+		</pre>
+
+		<a href="login.php?act=login">大戦略トップへ</a>
+	</body>
+
+{{include file="../footer.html"}}

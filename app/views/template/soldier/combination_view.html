@@ -1,0 +1,86 @@
+{{include file="../header.html"}}
+
+	<body>
+		<pre>
+			基础卡信息：
+			士官统称：{{$uSoldier_main.soldier_nickname}}
+			士官名：{{$uSoldier_main.soldier_name}}
+			士官LV：{{$uSoldier_main.level}}
+			士官经验值：{{$uSoldier_main.exp}}
+			士官配属成本：{{$uSoldier_main.cost}}
+			士官ICON：{{$uSoldier_main.icon}}
+			兵器名称：{{$uSoldier_main.weapon_name}}
+			攻击力：{{$uSoldier_main.attack * $uSoldier_main.weapon_count}}
+			防御力：{{$uSoldier_main.defense * $uSoldier_main.weapon_count}}
+			武器数：{{$uSoldier_main.weapon_count}}
+			特殊技能名：{{$uSoldier_main.skill_name}}
+			特殊技能LV：{{$uSoldier_main.skill_level}}
+			特殊技能描述：{{$uSoldier_main.skill_description}}
+			士官描述：{{$uSoldier_main.soldier_description}}
+
+			{{if $type neq 'batch'}}
+				<a href="soldier.php?act=combView_assist&sid_assist={{$uSoldier_assist_arr.0.id}}&type=main">更换基础卡</a>
+			{{else}}
+				<a href="soldier.php?act=combView_batch">更换基础卡</a>
+			{{/if}}
+
+			素材卡信息：
+			{{if $type neq 'batch'}}
+				{{foreach from=$uSoldier_assist_arr item=uSoldier_assist}}
+					士官统称：{{$uSoldier_assist.soldier_nickname}}
+					士官名：{{$uSoldier_assist.soldier_name}}
+					士官LV：{{$uSoldier_assist.level}}
+					士官经验值：{{$uSoldier_assist.exp}}
+					士官配属成本：{{$uSoldier_assist.cost}}
+					士官ICON：{{$uSoldier_assist.icon}}
+					兵器名称：{{$uSoldier_assist.weapon_name}}
+					攻击力：{{$uSoldier_assist.attack * $uSoldier_main.weapon_count}}
+					防御力：{{$uSoldier_assist.defense * $uSoldier_main.weapon_count}}
+					武器数：{{$uSoldier_assist.weapon_count}}
+					特殊技能名：{{$uSoldier_assist.skill_name}}
+					特殊技能LV：{{$uSoldier_assist.skill_level}}
+					特殊技能描述：{{$uSoldier_assist.skill_description}}
+					士官描述：{{$uSoldier_assist.soldier_description}}
+
+					<a href="soldier.php?act=combView_main&sid_main={{$uSoldier_main.id}}&type=assist">更换素材础卡</a>
+					确定要用这两个士官合成吗？
+					必要的军资金：{{$comb_coin}}
+
+					{{if $allow eq 'yes'}}
+						{{$coin_old}}->{{$coin_new}}
+						<a href="soldier.php?act=combActionFlash&sid_main={{$uSoldier_main.id}}&sid_assist={{$uSoldier_assist.id}}">开始合成</a>
+					{{else}}
+						军资金不足！
+					{{/if}}
+				{{/foreach}}
+			{{else}}
+				<form method="POST" action="soldier.php">
+					<input type="hidden" name="act" value="combActionFlash" />
+					<input type="hidden" name="sid_main" value="{{$uSoldier_main.id}}" />
+					{{foreach from=$uSoldier_assist_arr item=uSoldier_assist}}
+						<input type="hidden" name="sid_assist[]" value="{{$uSoldier_assist.id}}" />
+						士官统称：{{$uSoldier_assist.soldier_nickname}}
+						士官名：{{$uSoldier_assist.soldier_name}}
+						士官LV：{{$uSoldier_assist.level}}
+						士官经验值：{{$uSoldier_assist.exp}}
+						士官配属成本：{{$uSoldier_assist.cost}}
+						士官ICON：{{$uSoldier_assist.icon}}
+						兵器名称：{{$uSoldier_assist.weapon_name}}
+						攻击力：{{$uSoldier_assist.attack * $uSoldier_main.weapon_count}}
+						防御力：{{$uSoldier_assist.defense * $uSoldier_main.weapon_count}}
+						武器数：{{$uSoldier_assist.weapon_count}}
+						特殊技能名：{{$uSoldier_assist.skill_name}}
+						特殊技能LV：{{$uSoldier_assist.skill_level}}
+						特殊技能描述：{{$uSoldier_assist.skill_description}}
+						士官描述：{{$uSoldier_assist.soldier_description}}
+					{{/foreach}}
+				
+					<a href="soldier.php?act=combView_batch&sid_main={{$uSoldier_main.id}}&type=assist">更换素材础卡</a>
+
+					<input type="submit" value="合成" />
+				</form>
+			{{/if}}
+		</pre>
+	</body>
+
+{{include file="../footer.html"}}

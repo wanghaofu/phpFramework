@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+
+</script>
+</head>
+
+<body>
+
+{{section name=key loop=$countries}}
+<input type="button" id="{{$countries[key].country_id}}" name="{{$countries[key].country_id}}" value="{{$countries[key].country_name}}" onclick="location.href='soldier.php?act=send_soldier&countryid='+this.id" /><br /><br />
+{{/section}} 
+</body>
+</html>

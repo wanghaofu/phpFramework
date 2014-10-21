@@ -1,0 +1,94 @@
+<!DOCtype html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<link href="{{$ui_path}}axurerpprototype.css" type="text/css" rel="stylesheet">
+		<script src="{{$ui_path}}jquery.js" type="text/javascript"></script>
+		<style>
+			.tr
+			{
+				height:40px;
+				font-size:11pt;
+				color:#000000;
+			}
+		</style>
+		<script language="JavaScript">
+			<!--
+			$(function()
+			{
+				$("#subbtn").click
+				(
+					function()
+					{
+						$("#sub_msg").html("");
+						
+						var admin_name = $("#admin_name").val().replace(/(^\s*)|(\s*$)/g, "");
+						var admin_pass = $("#admin_pass").val().replace(/(^\s*)|(\s*$)/g, "");
+
+						if( admin_name == "" )
+						{
+							$("#sub_msg").html("<font color='red'>用户名不能为空！</font>");
+						}
+						else if( admin_pass == "" )
+						{
+							$("#sub_msg").html("<font color='red'>密码不能为空！</font>");
+						}
+						else
+						{
+							$("#myForm").submit();
+						}
+					}
+				);
+
+				$("#canbtn").click
+				(
+					function()
+					{
+						$("#admin_name").val("");
+						$("#admin_pass").val("");
+						$("#sub_msg").html("");
+					}
+				);
+			});
+			-->
+		</script>
+	</head>
+	
+	<body>
+		<center>
+			<table style="margin-top:0px">
+				<tr>
+					<td style="width:750px;height:561px;background-image:url({{$ui_path}}login.jpg)">
+						<div style="margin-left:37%;margin-top:1%">
+							<form method="post" action="Login.php" id="myForm" name="myForm">
+								<input type="hidden" name="type" value="login" />
+								<table>
+									<tr class="tr">
+										<td>用户名:</td>
+										<td><input type="text" name="admin_name" id="admin_name"></td>
+									</tr>
+									<tr class="tr">
+										<td>密&nbsp;&nbsp;&nbsp;码:</td>
+										<td><input type="password" name="admin_pass" id="admin_pass"></td>
+									</tr>
+									<tr class="tr">
+										<td colspan="2" style="text-align:center;">
+											<img id="subbtn" src="{{$ui_path}}admin_login_btn.png" style="border:0px">
+											&nbsp;&nbsp;&nbsp;
+											<img id="canbtn" src="{{$ui_path}}admin_cancel_btn.png" style="border:0px">
+										</td>
+									</tr>
+									<tr class="tr">
+										<td id="sub_msg" colspan="2" style="text-align:center;">
+											<font color='red'>{{$sub_msg}}</font>
+										</td>
+									</tr>
+								</table>
+							</form>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</center>
+	</body>
+</html>

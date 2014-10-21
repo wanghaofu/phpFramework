@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<pre>
+作战名：{{$uBattle.battle_name}}
+行动值：{{$uSession.energy}}
+经验值：{{$uSession.exp}}
+军资金：{{$uSession.coin}}
+LV:{{$uSession.level}}
+============================
+
+{{foreach from=$uBattle.son key=key item=mission}}
+任务名：<a href="mission.php?op=act::mission;bid::{{$uBattle.battle_id}};mid::{{$mission.mission_id}}">{{$mission.mission_name}}</a>
+经验值：+{{$mission.exp}}
+行动值：-{{$mission.energy}}
+军资金：+{{$mission.min_coin}}~{{$mission.max_coin}}
+运军率：{{$mission.schedule}}
+可获得卡片：{{$mission.prize_card}}
+============================
+{{/foreach}}
+</pre>
+</body>
+</html>

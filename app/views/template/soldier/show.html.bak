@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<pre>
+士官统称：{{$uSoldier.soldier_nickname}}
+士官名：{{$uSoldier.soldier_name}}
+士官LV：{{$uSoldier.level}}
+士官经验值：{{$uSoldier.exp}}
+士官配属成本：{{$uSoldier.cost}}
+士官ICON：{{$uSoldier.icon}}
+兵器名称：{{$uSoldier.weapon_name}}
+攻击力：{{$uSoldier.attack * $uSoldier.weapon_count}}
+防御力：{{$uSoldier.defense * $uSoldier.weapon_count}}
+武器数：{{$uSoldier.weapon_count}}
+特殊技能名：{{$uSoldier.skill_name}}
+特殊技能LV：{{$uSoldier.skill_level}}
+特殊技能描述：{{$uSoldier.skill_description}}
+士官描述：{{$uSoldier.soldier_description}}
+
+{{if $armyFlag == 1}}
+<a href="http://www.baidu.com">この士官を強化する</a>
+<a href="soldier.php?op=act::leader;aid::{{$army_id}};sid::{{$uSoldier.id}}">この士官をリーダーにする</a>
+<a href="army.php?op=act::show;id::{{$army_id}}">部隊編成に戻る</a>
+<a href="army.php?op=act::list">部隊一覧に戻る</a>
+{{/if}}
+
+<a href="soldier.php?op=act::streView;sid::{{$uSoldier.id}}">武器改造</a>
+</pre>
+</body>
+</html>

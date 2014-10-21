@@ -1,0 +1,28 @@
+{{include file="../header.html"}}
+
+	<body style="top:0px; left:0px;">
+		<a href="friend.php?act=friend_now">現在の友軍({{$num_now}})人</a>
+		<pre>
+			申請中の友軍
+			現在、申請中の友軍が{{$num_ing}}人います。
+
+			{{foreach from=$friend_ing item=friend_ing_i}}
+				uuid:{{$friend_ing_i.uuid}}
+				nickname：{{$friend_ing_i.nickname}}
+				level：{{$friend_ing_i.level}}
+				exp：{{$friend_ing_i.exp}}
+				coin：{{$friend_ing_i.coin}}
+				energy：{{$friend_ing_i.energy}}
+				hp：{{$friend_ing_i.hp}}
+				max_soldier_count：{{$friend_ing_i.max_soldier_count}}
+				max_energy_count：{{$friend_ing_i.max_energy_count}}
+				max_cost_count：{{$friend_ing_i.max_cost_count}}
+				max_friend_count：{{$friend_ing_i.max_friend_count}}
+				next_exp：{{$friend_ing_i.next_exp}}
+			{{/foreach}}
+		</pre>
+
+		<a href="login.php?act=login">大戦略トップへ</a>
+	</body>
+
+{{include file="../footer.html"}}

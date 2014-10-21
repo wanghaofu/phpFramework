@@ -1,0 +1,22 @@
+{{include file="../header.html"}}
+
+	<body style="top:0px; left:0px;">
+		<pre>
+			{{$nickname}}に祝砲を打ち上げて、お互いに友軍PTを2ﾎﾟｲﾝﾄ手に入れた！
+			友軍PT：{{$pt_old}}->{{$pt_new}}
+
+			30文字以内で伝令を送ろう！
+			<form method="POST" action="message.php">
+				<input type="text" name="content" />
+				<input type="hidden" name="fid" value="{{$fid}}" />
+				<input type="hidden" name="act" value="message" />
+				<input type="submit" value="伝令送信" />
+			</form>
+
+			ここに祝砲や伝令の説明文や注意書きが入ります。
+		</pre>
+
+		<a href="login.php?act=login">大戦略トップへ</a>
+	</body>
+
+{{include file="../footer.html"}}

@@ -1,0 +1,63 @@
+{{include file="../header.html"}}
+<body style="background-color:#262626;color:#FFFFFF;">
+<!--VERSION ID-->
+<span style="font-size:x-small;">Dai Senryak Ver:ALPHA</span>
+<hr color="#FF9900">
+<!--ID END-->
+
+<!--TITLE START-->
+<div align="center"><img src="{{$StaticBaseUrl}}/common/tp_tl_bg.gif" alt="TOP-TITLE" width="238" height="25"/></div>
+<!--TITLE END-->
+<br />
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  	<td colspan="3"><img src="{{$StaticBaseUrl}}/common/misc/px_ABDFE2.gif" width="100%" height="1" />
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" bgcolor="#3CAEB3" style="text-align:center;"><span style="font-size:medium">熱血二等兵</span></td>
+  </tr>
+  <tr bgcolor="#39855B">
+    <td width="30%" style="text-align:center;"><span style="font-size:x-small"> 
+    レベル<span style="color:#ffd200;">{{$uSoldier.level}}</span></span></td>
+    <td width="30%" style="text-align:center;"><span style="font-size:x-small">
+    経験値<span style="color:#ffd200;">{{$uSoldier.exp}}</span></span></td>
+    <td width="40%" style="text-align:center;"><span style="font-size:x-small"> 
+    配属コスト<span style="color:#ffd200;">{{$uSoldier.cost}}</span></span></td>
+  </tr>
+</table>
+
+
+<div style="text-align:center;">
+	<br>
+	<img src="{{$StaticBaseUrl}}/common/cards/name_l.jpg" alt="" width="194" height="259" />
+    <br>
+
+    <table width="98%" border="1" bordercolor="#000000" cellpadding="2" cellspacing="0">
+  <tr>
+        <td width="20%" bgcolor="#AF3438" align="center"><span style="font-size:x-small;">攻撃力</span></td>
+    <td width="13%" align="center"><span style="font-size:x-small;">{{$uSoldier.attack * $uSoldier.weapon_count}}</span></td>
+    <td width="20%" bgcolor="#4BACC6" align="center"><span style="font-size:x-small;">防御力</span></td>
+    <td width="13%" align="center"><span style="font-size:x-small;">{{$uSoldier.defense * $uSoldier.weapon_count}}</span></td>
+    <td width="15%" bgcolor="#E46C0A" align="center"><span style="font-size:x-small;">兵力</span></td>
+    <td width="19%" align="center"><span style="font-size:x-small;">{{$uSoldier.weapon_count}}/{{$uSoldier.weapon_count_limit}}</span></td>
+  </tr>
+</table>
+</div>
+
+
+<br>
+<img src="{{$StaticBaseUrl}}/common/misc/px_FACF73.gif" width="100%" height="1" />
+<div style="background-color:#f5a700;text-align:center;"><span style="font-size:x-small;color:#5F3D1B;">{{$uSoldier.skill_name}}&nbsp;&nbsp;Lv{{$uSoldier.skill_level}}</span></div>
+<div style="background-color:#cb8e4c;"><blockquote><span style="font-size:x-small;">{{$uSoldier.skill_description}}</span></blockquote></div>
+<div><blockquote><span style="font-size:x-small;">{{$uSoldier.soldier_description}}</span></blockquote></div>
+
+{{if $armyFlag == 1}}
+<p style="text-align:center;"><a href="soldier.php?op=act::streView;sid::{{$uSoldier.id}}"><span style="text-align:center;">この士官を強化する</span></a></p>
+<p style="text-align:center;"><a href="soldier.php?op=act::leader;aid::{{$army_id}};sid::{{$uSoldier.id}}"><span style="text-align:center;">この士官をリーダーにする</span></a></p>
+<p style="text-align:center;"><a href="army.php?op=act::show;id::{{$army_id}}"><span style="text-align:center;">部隊編成に戻る</span></a></p>
+<p style="text-align:center;"><a href="army.php?op=act::list"><span style="text-align:center;">部隊一覧に戻る</span></a></p>
+{{/if}}
+<br />
+</body>
+{{include file="../footer.html"}}

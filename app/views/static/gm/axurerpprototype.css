@@ -1,0 +1,67 @@
+body
+{
+	font-size:12px;
+	padding: 0;
+	margin: 0;
+	height: auto;	
+	background: repeat-x top;
+	font-family:Verdana, Arial, Helvetica, sans-serif; 
+}
+
+a 
+{
+	font-family:arial;
+	font-size:10pt;
+	text-decoration:none;
+	color:#000099;
+	cursor:pointer;
+}
+h1, h2, h3, h4, h5, h6, form, div, i, img, ul, li, ol, table, tr, td, fieldset, label, legend, dl, dd, dt {
+	margin:0;
+	padding:0;
+}
+a {color:#333; text-decoration: none;}
+a:hover{color: #FF0000; text-decoration: underline;}
+input { font-size:12px;}
+img {
+	border:0;
+}
+.side_col {
+	FLOAT: left; WIDTH: 140px
+}
+.side_col .box {
+	MARGIN: 10px 0px 0px
+}
+.side_col .box .heading {
+	PADDING-RIGHT: 12px; PADDING-LEFT: 12px; BACKGROUND: url(my_img.png) no-repeat 0px -130px; PADDING-BOTTOM: 0px; PADDING-TOP: 12px
+}
+.side_col .box .heading H2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 14px; PADDING-BOTTOM: 5px; PADDING-TOP: 0px; BORDER-BOTTOM: #eee 1px solid
+}
+.side_col .box .container {
+	PADDING-RIGHT: 12px; PADDING-LEFT: 12px; BACKGROUND: url(my_img.png) no-repeat -140px -90px; PADDING-BOTTOM: 0px; PADDING-TOP: 5px
+}
+.side_col .box .footing {
+	BACKGROUND: url(my_img.png) no-repeat 0px -170px; OVERFLOW: hidden; HEIGHT: 10px
+}
+.side_nav  a{
+	COLOR: #09b
+}
+.side_nav LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 15px; FONT-SIZE: 13px; BACKGROUND: url(my_img.png) no-repeat -20px -180px; PADDING-BOTTOM: 0px; LINE-HEIGHT: 26px; PADDING-TOP: 0px; list-style:none;
+}
+.side_nav div.current {
+}
+.side_nav div.current A {
+	CURSOR: default; COLOR: #f60; TEXT-DECORATION: none
+}
+.primary_link {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 12px; BACKGROUND: url(../../images/my_img.png) no-repeat 0px -90px; PADDING-BOTTOM: 0px; OVERFLOW: hidden; WIDTH: 140px; PADDING-TOP: 0px; HEIGHT: 40px
+}
+.primary_link A {
+	DISPLAY: block; FONT-SIZE: 14px; COLOR: #fff; LINE-HEIGHT: 40px; WHITE-SPACE: nowrap; TEXT-DECORATION: none; font-weight:bold;
+}
+
+.primary_link A:hover {
+	 TEXT-DECORATION: none; color:#FFff00
+}

@@ -1,0 +1,29 @@
+{{include file="../header.html"}}
+
+<body>
+<pre>
+士官统称：{{$uSoldier_main.soldier_nickname}}
+士官名：{{$uSoldier_main.soldier_name}}
+士官LV：{{$uSoldier_main.level}}
+士官经验值：{{$uSoldier_main.exp}}
+士官配属成本：{{$uSoldier_main.cost}}
+士官ICON：{{$uSoldier_main.icon}}
+兵器名称：{{$uSoldier_main.weapon_name}}
+攻击力：{{$uSoldier_main.attack * $uSoldier_main.weapon_count}}
+防御力：{{$uSoldier_main.defense * $uSoldier_main.weapon_count}}
+武器数：{{$uSoldier_main.weapon_count}}
+特殊技能名：{{$uSoldier_main.skill_name}}
+特殊技能LV：{{$uSoldier_main.skill_level}}
+特殊技能描述：{{$uSoldier_main.skill_description}}
+士官描述：{{$uSoldier_main.soldier_description}}
+
+经验入手：{{$comb_exp}}
+等级变化：Lv{{$uSoldier_main.level}}->Lv{{$uSoldier_main.level_new}}
+最大兵器数变化：{{$uSoldier_main.weapon_count}}->{{$uSoldier_main.weapon_count_new}}
+技能等级变化：Lv{{$uSoldier_main.skill_level}}->Lv{{$uSoldier_main.skill_level_new}}
+
+<a href="soldier.php?act=combView_main&sid_main={{$uSoldier_main.id}}&type=assist">继续合成</a>
+</pre>
+</body>
+
+{{include file="../footer.html"}}

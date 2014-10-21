@@ -1,0 +1,123 @@
+{{include file="../header.html"}}
+<body style="background-color:#262626;color:#FFFFFF;">
+<!--VERSION ID-->
+<span style="font-size:x-small;">Dai Senryak Ver:ALPHA</span>
+<hr color="#FF9900">
+<!--ID END-->
+
+<!--TITLE START-->
+<div align="center"><img src="{{$StaticBaseUrl}}/common/tp_tl_bg.gif" alt="TOP-TITLE"></div>
+{{if $addFlag eq 1}}
+<div style="text-align:center;"><span style="color:#09B900;font-size:x-small;">入れ替える士官を選択</span></div>
+{{/if}}
+{{if $replaceFlag eq 1}}
+<div style="text-align:center;"><span style="color:#09B900;font-size:x-small;">士官を追加する</span></div>
+{{/if}}
+<!--TITLE END-->
+{{if $addFlag eq 1}}
+<div style="background-color:#367773;text-align:center"><span style="font-size:x-small;">入れ替える士官を選択</span></div>
+{{/if}}
+{{if $replaceFlag eq 1}}
+<div style="background-color:#367773;text-align:center"><span style="font-size:x-small;">追加する士官を選択</span></div>
+{{/if}}
+<div style="text-align:center">
+    <form method="GET" action="soldier.php">
+    	<input type="hidden" name="act" value="list">
+    	<input type="hidden" name="nat" value="{{$nation}}">
+    	<input type="hidden" name="aid" value="{{$army_id}}">
+    	<select name="rule">
+        	<option value="0" {{$selectFlag0}}>自动排序</option>
+            <option value="1" {{$selectFlag1}}>攻击从低到高</option>
+            <option value="-1" {{$selectFlag_1}}>攻击从高到低</option>
+            <option value="2" {{$selectFlag2}}>防御从低到高</option>
+            <option value="-2" {{$selectFlag_2}}>防御从高到低</option>
+            <option value="3" {{$selectFlag3}}>等级从低到高</option>
+            <option value="-3" {{$selectFlag_3}}>等级从高到低</option>
+            <option value="4" {{$selectFlag4}}>配属成本从低到高</option>
+            <option value="-4" {{$selectFlag_4}}>配属成本从高到低</option>
+            <option value="5" {{$selectFlag5}}>武器数从低到高</option>
+            <option value="-5" {{$selectFlag_5}}>武器数从高到低</option>
+            <option value="6" {{$selectFlag6}}>武器属性从低到高</option>
+            <option value="-6" {{$selectFlag_6}}>武器属性从高到低</option>
+            <option value="7" {{$selectFlag7}}>稀有度从低到高</option>
+            <option value="-7" {{$selectFlag_7}}>稀有度从高到低</option>
+        </select>
+        <input type="submit" value="並べ替え">
+    </form>
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td bgcolor="{{$nation_color0}}" style="text-align:center" width="22%"><span style="font-size:x-small"><a href="{{$nation_link0}}">ALL</a></span></td>
+    <td bgcolor="{{$nation_color1}}" style="text-align:center" width="13%"><span style="font-size:x-small"><a href="{{$nation_link1}}">JP</a></span></td>
+    <td bgcolor="{{$nation_color2}}" style="text-align:center" width="13%"><span style="font-size:x-small"><a href="{{$nation_link2}}">US</a></span></td>
+    <td bgcolor="{{$nation_color3}}" style="text-align:center" width="13%"><span style="font-size:x-small"><a href="{{$nation_link3}}">RS</a></span></td>
+    <td bgcolor="{{$nation_color4}}" style="text-align:center" width="13%"><span style="font-size:x-small"><a href="{{$nation_link4}}">UK</a></span></td>
+    <td bgcolor="{{$nation_color5}}" style="text-align:center" width="13%"><span style="font-size:x-small"><a href="{{$nation_link5}}">DE</a></span></td>
+    <td bgcolor="{{$nation_color6}}" style="text-align:center" width="13%"><span style="font-size:x-small"><a href="{{$nation_link6}}">UN</a></span></td>
+  </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr bgcolor="#602D24">
+<td width="30%" style="text-align:left">&nbsp;<span style="font-size:x-small"><a href="{{$prevPageLink}}">←前へ</a></span></td>
+<td width="40%" style="text-align:center"><span style="font-size:x-small">[{{$pageNum}}/{{$totalPageNum}}]</span></td>
+<td width="30%" style="text-align:right"><span style="font-size:x-small"><a href="{{$nextPageLink}}">次へ&rarr;</a>&nbsp;</span></td>
+</tr>
+</table>
+<br>
+{{foreach from=$uSoldiers key=key item=soldier}}
+<img src="{{$StaticBaseUrl}}/common/misc/px_C79395.gif" width="100%" height="1" />
+
+<div style="background-color:#9D3134;width:100%;text-align:center;">
+	<table border="0" cellpadding="3" cellspacing="0">
+	<tr>
+		<td rowspan="2" style="text-align:center;"><img src="{{$StaticBaseUrl}}/common/avatars/{{$soldier.soldier_gf}}" alt="" width="46" height="62" /></td>
+		<td><img src="{{$StaticBaseUrl}}/common/icons/{{$soldier.nation_gf}}" alt="us" width="20" height="20" align="left" /><span style="font-size:x-small"><a href="soldier.php?op=act::show;sid::{{$soldier.id}}">{{$soldier.soldier_name}}</a>&nbsp;&gt;Lv{{$soldier.level}}</span></td>
+	</tr>
+	<tr>		
+		<td><img src="{{$StaticBaseUrl}}/common/icons/{{$soldier.weapon_gf}}" alt="tank" width="20" height="20" align="left" /><span style="font-size:x-small">{{$soldier.weapon_name}}</span></td>
+	</tr>
+	</table>
+
+	<table border="1" bordercolor="#000000" cellpadding="0" cellspacing="0" width="98%">
+      	<tr>
+        <td width="12%" bgcolor="#AF3438" align="center"><span style="font-size:x-small;">攻</span></td>
+        <td width="21%" bgcolor="#262626"align="center"><span style="font-size:x-small;">{{$soldier.attack * $soldier.weapon_count}}</span></td>
+        <td width="12%" bgcolor="#4BACC6" align="center"><span style="font-size:x-small;">防</span></td>
+        <td width="21%" bgcolor="#262626"align="center"><span style="font-size:x-small;">{{$soldier.defense * $soldier.weapon_count}}</span></td>
+        <td width="12%" bgcolor="#E46C0A" align="center"><span style="font-size:x-small;">兵</span></td>
+        <td width="22%" bgcolor="#262626"align="center"><span style="font-size:x-small;">{{$soldier.weapon_count}}/{{$soldier.weapon_count_limit}}</span></td>
+      	</tr>
+    </table>
+</div>
+
+<div style="background-color:#821E21;">
+<span style="font-size:x-small">&gt;&gt;ｺｽﾄ<span style="color:#FC0">{{$soldier.cost}}</span>&nbsp;&nbsp;&gt;&gt;ｽｷﾙの名前&nbsp;&gt;&gt;Lv{{$soldier.skill_level}}</span>
+</div>
+<br>
+<div align="center"><span style="font-size:x-small">
+{{if $army_id neq 0}}
+	{{if $replaceFlag eq 0}}
+	*<a href="soldier.php?op=act::join;aid::{{$army_id}};nid::{{$soldier.id}}">部隊に入れる</a><br />
+	{{else}}
+	*<a href="soldier.php?op=act::join;aid::{{$army_id}};nid::{{$soldier.id}};oid::{{$oldSoldierId}}">部隊に入れる</a><br />
+	{{/if}}{{/if}}
+    </span>
+</div>
+<br>
+{{/foreach}}
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr bgcolor="#602D24">
+<td width="30%" style="text-align:left">&nbsp;<span style="font-size:x-small"><a href="#">←前へ</a></span></td>
+<td width="40%" style="text-align:center"><span style="font-size:x-small">[{{$pageNum}}/{{$totalPageNum}}]</span></td>
+<td width="30%" style="text-align:right"><span style="font-size:x-small"><a href="#">次へ&rarr;</a>&nbsp;</span></td>
+</tr>
+</table>
+{{if $army_id neq 0}}
+<div style="text-align:center;">&#63883;<a href="army.php?op=act::show;id::{{$oldSoldier.army_id}}" accesskey="5"><span style="font-size:x-small;">部隊編成に戻る</span></a></div>
+{{/if}}
+<div style="text-align:center;">&#63886;<a href="army.php?op=act::list" accesskey="8"><span style="font-size:x-small;">部隊一覧に戻る</span></a></div>
+
+</body>
+{{include file="../footer.html"}}

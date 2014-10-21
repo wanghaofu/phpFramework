@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+	<title>#</title>	
+
+	<style>
+
+	/* 提示框样式 */
+
+	.prompt {
+
+		position: absolute;
+
+		width: 700px;
+
+		top: 50%;
+
+		left: 50%;
+
+		margin-top: -90px;
+
+		margin-left: -350px;
+
+		border: 1px solid #C8E4D5;
+
+		background-color: #F5FDF8;
+
+		background: url(prompt-bg.gif) repeat-x;
+
+	}
+
+
+
+	.prompt_body {
+
+		width: 688px;
+
+		padding: 5px;
+
+		border: 1px solid #FFFFFF;
+
+		background-color: #E9F9F1;
+
+	}
+
+
+
+	.prompt ul, .prompt li {
+
+		padding: 0;
+
+		margin: 0;
+
+		list-style: none;
+
+	}
+
+
+
+	.prompt_type_error .prompt_message {
+
+	}
+
+
+
+	.prompt div {
+
+		font-size: 14px;
+
+		line-height: 150%;
+
+		text-align: left;
+
+		color: #698B79;
+
+	}
+
+
+
+	.prompt a {
+
+		color: #698B79;
+
+		text-decoration: underline;
+
+	}
+
+
+
+	.prompt a:hover {
+
+		color: black;
+
+	}
+
+
+
+	.prompt_title {
+
+		font-weight: bold;
+
+		font-size: 14px;
+
+		padding: 5px 20px 5px 20px;
+
+		border-bottom: 1px solid #C8E4D5;
+
+	}
+
+
+
+	.prompt_message {
+
+		padding: 15px 20px 10px 20px;
+
+		border-top: 1px solid #FFFFFF;
+
+	}
+
+
+
+	.prompt_message .error {
+
+		color: black;
+
+	}
+
+
+
+	.prompt_link {
+
+		padding: 5px 20px 10px 20px;
+
+	}
+
+	</style>
+
+	<script type="text/javascript" src="/common/script/common.js"></script>
+
+</head>
+
+<body>
+
+<div id="container">
+
+
+
+<div class="prompt prompt_type_{{$type}}" id="promptBox">
+
+	<div class="prompt_body">
+
+		<div class="prompt_title">{{$title}}</div>
+
+		<div class="prompt_message">{{$msg}}</div>
+
+		<div class="prompt_link">
+
+			<ul>
+
+			{{if $retIsArray }}		
+
+				{{foreach key=Key item=LinkItem from=$link}}
+
+				<li>{{$Key+1}}. <a href="{{$LinkItem.1}}" id="promptLink{{$Key}}">{{$LinkItem.0}}</a></li>
+
+				{{/foreach}}
+
+			{{else}}
+
+				<li><a href="{{$url}}">{{$link}}</a></li>
+
+			{{/if}}
+
+			</ul>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+
+<script type="text/javascript">
+
+<!--
+
+centerDiv ( 'promptBox' );
+
+//-->
+
+</script>
+
+{{if $delay > 0}}
+
+<!-- 自动跳转开始 -->
+
+<meta http-equiv="refresh" content="{{$delay}};url={{if $retIsArray}}{{$link.0.1}}{{else}}{{$url}}{{/if}}">
+
+<script type="text/javascript">
+
+<!--
+
+function AutoRefresh ()
+
+{
+
+	try
+
+	{
+
+		$("promptLink0").click ();
+
+	}
+
+	catch ( e )
+
+	{
+
+	}
+
+}
+
+setTimeout ( 'AutoRefresh()', {{$delay}} * 1000 );
+
+//-->
+
+</script>
+
+<!-- 自动跳转结束 -->
+
+{{/if}}
+
+
+
+</div>
+
+</body>
+
+</html>

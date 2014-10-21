@@ -1,0 +1,67 @@
+{{include file="../header.html"}}
+
+	<body style="top:0px; left:0px;">
+		<img id="subbtn" src="{{$ui_path}}login.jpg" style="border:0px; height:120px; width:240px; " />
+		<br />
+			キャッチコピーなど
+			キャッチコピーなど
+		<br />
+		<a href="basecamp.php?act=basecamp">ベースキャンプへ</a>
+		<br />
+		<a href="lotto.php?act=toppage">ガチャ誘導バナー</a>
+		<br />
+		新イベント情報や一押しキャンペーン紹介などのスペース
+		<br />
+		<a href="login.php?act=event">詳しくはこちら</a>
+		<br />
+		<br />
+		event
+		<br />
+
+		{{foreach from=$event_all item=event_all_i}}
+			<a href="login.php?act=event&event_id={{$event_all_i.event_id}}">{{$event_all_i.title}}</a>
+			<br />
+		{{/foreach}}
+
+		運営からのお知らせ
+		<br />
+		
+		{{foreach from=$inform_all item=inform_all_i}}
+			<a href="login.php?act=inform&inform_id={{$inform_all_i.inform_id}}">{{$inform_all_i.adddate}}&nbsp;{{$inform_all_i.title}}</a>
+			<br />
+		{{/foreach}}
+
+		<br />
+		<a href="login.php?act=inform_all">もっと見る</a>
+		<br />
+
+		前日の戦闘
+		<br />
+		1位
+		<br />
+		<a href="login.php?act=interact&userid=2">ユーザー名</a>
+		<br />
+		LV 99
+		<br />
+		勝利回数 999回
+		<br />
+		<a href="login.php?act=pvp_rank">もっと戦闘</a>
+		<br /><br />
+
+		新入り司令官
+		<br />
+		1位
+		<br />
+		<a href="login.php?act=hello">ユーザー名</a>
+		<br />
+		LV 99
+		<br />
+		勝利回数 999回
+		<br />
+		<a href="login.php?act=new_user">もっと新入り司令官を見る</a>
+		<br />
+
+		<a href="basecamp.php?act=basecamp">ベースキャンプへ</a>
+	</body>
+
+{{include file="../footer.html"}}

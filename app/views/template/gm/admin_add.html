@@ -1,0 +1,31 @@
+<!DOCtype html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<script src="{{$ui_path}}jquery.js" type="text/javascript"></script>
+		<script language="JavaScript">
+
+		</script>
+	</head>
+	
+	<body>
+		<form method="post" action="Admin.php" id="myForm">
+			<input type="hidden" name="type" value="addAction" />
+			用户名称：&nbsp;
+			<input type="text" name="admin_name" id="admin_name" value="" />
+			{{if $errormsg eq 'name_repeat'}}&nbsp;<font style="color:red;">用户名已存在，请更换其他的用户名！</font>&nbsp;{{/if}}
+			<br /><br />
+			用户密码：&nbsp;
+			<input type="text" name="admin_pass" id="admin_pass" value="" />
+			<br /><br />
+			职位：&nbsp;
+			<select name="position_id" id="position_id">
+				{{foreach from=$position_all item=position_all_item}}
+					<option value="{{$position_all_item.position_id}}">{{$position_all_item.position_name}}</option>
+				{{/foreach}}
+			</select>
+			<br /><br />
+			<input type="submit" value="提交" />&nbsp;&nbsp;<input type="reset" value="重置" />
+		</form>
+	</body>
+</html>

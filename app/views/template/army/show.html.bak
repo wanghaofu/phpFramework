@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<body>
+<pre>
+第{{$uArmy.army_id}}部隊の編成
+編成ｺｽﾄ：{{$uArmy.armyCost}}/{{$uArmy.uCost}}
+総攻撃力：{{$uArmy.attack}}
+総防御力：{{$uArmy.defense}}
+<br />
+*************************
+{{foreach from=$uArmy.member key=key item=soldier}}
+士官名：<a href="soldier.php?op=act::show;sid::{{$soldier.id}};flag::1;aid::{{$uArmy.army_id}}">{{$soldier.soldier_name}}</a>
+LV：{{$soldier.level}}
+武器名：{{$soldier.weapon_name}}
+攻击力：{{$soldier.attack * $soldier.weapon_count}}
+防御力：{{$soldier.defense * $soldier.weapon_count}}
+兵器数{{$soldier.weapon_count}}/{{$soldier.weapon_count_limit}}
+<a href="soldier.php?op=act::list;aid::{{$uArmy.army_id}};oid::{{$soldier.id}}">他の士官と入れ替える</a>
+<a href="soldier.php?op=act::out;aid::{{$uArmy.army_id}};sid::{{$soldier.id}}">部隊から外す</a>
+{{if $soldier.sort neq 1}}
+<a href="soldier.php?op=act::leader;aid::{{$uArmy.army_id}};sid::{{$soldier.id}}">この士官をリーダーにする</a>
+{{/if}}
+*************************
+{{/foreach}}
+
+{{if $joinFlag eq 1}}
+<a href="soldier.php?op=act::list;aid::{{$uArmy.army_id}}">士官を部隊に配属する</a>
+{{/if}}
+
+<a href="army.php?op=act::list">部隊一覧に戻る</a>
+</pre>
+</body>
+</html>

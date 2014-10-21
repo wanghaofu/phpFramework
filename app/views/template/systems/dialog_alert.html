@@ -1,0 +1,17 @@
+<!-- 提示框 -->
+<table class="box" style="width:500px">
+	<tr>
+		<td align="center"><table align="center"><tr><td align="left" class="message">[$message]</td></tr></table></td>
+	</tr>
+	<tr>
+		<td class="buttons">
+			<input name="alert_button" type="button" onclick='this.blur(); [$scriptCode]' value="<if $scriptText>[$scriptText]<else>确定</if>" />
+		
+		</td>
+	</tr>
+</table>
+<script type="text/javascript">
+<!--
+setFocus ( 'alert_button' );
+//-->
+</script>

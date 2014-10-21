@@ -1,0 +1,35 @@
+{{include file="../header.html"}}
+
+<body>
+入れ替える士官を選択
+<br />
+<select id="rule" name="rule">
+<option id="attack">攻击力</option>
+<option id="defense">防御力</option>
+</select>
+<input type="submit" id="submit" />
+
+<pre>
+{{foreach from=$uSoldiers key=key item=soldier}}
+ICON：{{$soldier.icon}}
+士官名：<a href="soldier.php?act=combView_assist&sid_assist={{$soldier.id}}&type=main">{{$soldier.soldier_name}}</a>
+士官稀有度：{{$soldier.star}}
+士官等级：{{$soldier.level}}
+兵器名：{{$soldier.weapon_name}}
+攻击力：{{$soldier.attack * $soldier.weapon_count}}
+防御力：{{$soldier.defense * $soldier.weapon_count}}
+武器数：{{$soldier.weapon_count}}/{{$soldier.weapon_count_limit}}
+技能名：{{$soldier.skill_name}}
+技能等级:{{$soldier.skill_level}}
+
+{{if $soldier.army_id neq 0}}
+第{{$soldier.army_id}}部队
+{{/if}}
+
+配属成本：{{$soldier.cost}}
+=======================================
+{{/foreach}}
+</pre>
+</body>
+
+{{include file="../footer.html"}}

@@ -1,0 +1,48 @@
+<!DOCtype html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<script src="{{$ui_path}}jquery.js" type="text/javascript"></script>
+		<script language="JavaScript">
+			<!--
+			$(function()
+			{
+			});
+			-->
+		</script>
+	</head>
+	
+	<body>
+		<table style="text-align:center;width:50%;">
+			<tr>
+				<th>模块名称</th>
+				<th>操作</th>
+			</tr>
+			{{foreach from=$module_list item=module_list_item}}
+				<tr>
+					<td style="color:#ff0000">{{$module_list_item.oneself.module_name}}</td>
+					<td>
+						<a href="Module.php?type=editView&module_id={{$module_list_item.oneself.module_id}}">编辑</a>
+						&nbsp;&nbsp;&nbsp;
+						<a href="Module.php?type=del&module_id={{$module_list_item.oneself.module_id}}">删除</a>
+					</td>
+				</tr>
+				{{foreach from=$module_list_item.child item=child_list_item}}
+					<tr>
+						<td style="color:#0000ff">{{$child_list_item.oneself.module_name}}</td>
+						<td>
+							<a href="Module.php?type=editView&module_id={{$child_list_item.oneself.module_id}}">编辑</a>
+							&nbsp;&nbsp;&nbsp;
+							<a href="Module.php?type=del&module_id={{$child_list_item.oneself.module_id}}">删除</a>
+						</td>
+					</tr>
+				{{/foreach}}
+			{{/foreach}}
+			<tr>
+				<td colspan="2">
+					<a href="Module.php?type=addView">新增模块</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

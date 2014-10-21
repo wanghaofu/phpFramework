@@ -1,0 +1,38 @@
+<!DOCtype html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<script src="{{$ui_path}}jquery.js" type="text/javascript"></script>
+		<script language="JavaScript">
+			<!--
+			$(function()
+			{
+			});
+			-->
+		</script>
+	</head>
+	
+	<body>
+		<table style="text-align:center;width:50%;">
+			<tr>
+				<th>公告标题</th>
+				<th>操作</th>
+			</tr>
+			{{foreach from=$inform_all item=inform_all_item}}
+				<tr>
+					<td>{{$inform_all_item.title}}</td>
+					<td>
+						<a href="Inform.php?type=editView&inform_id={{$inform_all_item.inform_id}}">编辑</a>
+						&nbsp;&nbsp;&nbsp;
+						<a href="Inform.php?type=del&inform_id={{$inform_all_item.inform_id}}">删除</a>
+					</td>
+				</tr>
+			{{/foreach}}
+			<tr>
+				<td colspan="2">
+					<a href="Inform.php?type=addView">新增公告</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

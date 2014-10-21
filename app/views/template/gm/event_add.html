@@ -1,0 +1,23 @@
+<!DOCtype html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<script src="{{$ui_path}}jquery.js" type="text/javascript"></script>
+		<script language="JavaScript">
+
+		</script>
+	</head>
+	
+	<body>
+		<form method="post" action="Event.php" id="myForm">
+			<input type="hidden" name="type" value="addAction" />
+			杂志标题：&nbsp;
+			<input type="text" name="title" id="title" value="" />
+			<br /><br />
+			杂志内容：&nbsp;
+			<textarea name="content" id="content"></textarea>
+			<br /><br />
+			<input type="submit" value="提交" />&nbsp;&nbsp;<input type="reset" value="重置" />
+		</form>
+	</body>
+</html>

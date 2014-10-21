@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+
+</script>
+</head>
+
+<body>
+
+{{section name=key loop=$userSoldiers}}
+<textarea cols="15" rows="10" id="t1" name="t1">
+ID：{{$userSoldiers[key].id}}
+士官ID：{{$userSoldiers[key].soldierid}}
+等级：{{$userSoldiers[key].level}}
+经验：{{$userSoldiers[key].exp}}
+攻击力：{{$userSoldiers[key].attack}}
+防御力：{{$userSoldiers[key].defense}}
+耐久度：{{$userSoldiers[key].hp}}
+武器：{{$userSoldiers[key].weapons}}
+</textarea>
+<input type="button" id="{{$userSoldiers[key].id}}" name="{{$userSoldiers[key].id}}" value="提交" 
+onclick="location.href='weapon.php?act=weapon_list&sid={{$userSoldiers[key].id}}'" />
+{{/section}}
+</body>
+</html>

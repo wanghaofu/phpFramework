@@ -1,0 +1,31 @@
+{{if $pageItems.pageCount > 1}}
+{{assign var="showPagesLimit" value="5"}}
+<div id="pageSwitchBar" class="list_switch">
+	{{if !$pageItems.hideDetails}}
+	<h3>
+		以下列出 <span class="highlight">{{$pageItems.recordCount}}</span> {{$pageItems.recordUnit}}满足条件的{{$pageItems.recordName}}。
+		共 <span class="highlight">{{$pageItems.pageCount}}</span> 页
+	</h3>
+	{{/if}}
+	{{if $pageItems.pageCount > 1}}
+	<ul>
+	{{math equation="x - y" x=$pageItems.currentPage y=$showPagesLimit assign="minPageIndex"}}
+	{{math equation="x + y" x=$pageItems.currentPage y=$showPagesLimit assign="maxPageIndex"}}
+
+	{{if $minPageIndex >= 1}}
+	<li><a href="{{$pageItems.links[1].link}}">|&lt;&lt;</a></li>
+	<li><a href="{{$pageItems.links[$minPageIndex].link}}">&lt;&lt;</a></li>
+	{{/if}}
+	{{foreach key=key item=item from=$pageItems.links}}
+		{{if $item.text > $pageItems.currentPage - $showPagesLimit && $item.text < $pageItems.currentPage + $showPagesLimit}}
+		<li {{if $pageItems.currentPage==$item.text}}class="highlight"{{/if}}><a href="{{$item.link}}; highlight(this.parentNode);">{{$item.text}}</a></li>
+		{{/if}}
+	{{/foreach}}
+	{{if $maxPageIndex <= $pageItems.pageCount}}
+	<li><a href="{{$pageItems.links[$maxPageIndex].link}}">&gt;&gt;</a></li>
+	<li><a href="{{$pageItems.links[$pageItems.pageCount].link}}">&gt;&gt|</a></li>
+	{{/if}}
+	</ul>
+	{{/if}}
+</div>
+{{/if}}

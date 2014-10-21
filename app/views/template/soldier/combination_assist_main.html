@@ -1,0 +1,61 @@
+{{include file="../header.html"}}
+
+<body>
+<pre>
+ICON：{{$uSoldier.icon}}
+士官名称：<a href="soldier.php?op=act::show;sid::{{$uSoldier.id}}">{{$uSoldier.soldier_name}}</a>
+士官稀有度：{{$uSoldier.star}}
+士官等级：{{$uSoldier.level}}
+兵器名：{{$uSoldier.weapon_name}}
+攻击力：{{$uSoldier.attack * $uSoldier.weapon_count}}
+防御力：{{$uSoldier.defense * $uSoldier.weapon_count}}
+武器数：{{$uSoldier.weapon_count}}/{{$uSoldier.weapon_count_limit}}
+技能名：{{$uSoldier.skill_name}}
+技能等级{{$uSoldier.skill_level}}
+第{{$uSoldier.army_id}}部队
+配属成本：{{$uSoldier.cost}}
+</pre>
+
+<br />
+<a href="soldier.php?act=combView_assist">素材士官卡的变更</a>
+<br />
+<a href="soldier.php?act=combView_main&sid_main={{$uSoldier.id}}&type=assist">将此卡作为基础士官卡</a>
+
+<br /><br />
+=======================================
+
+<br />
+入れ替える士官を選択
+<br />
+<select id="rule" name="rule">
+<option id="attack">攻击力</option>
+<option id="defense">防御力</option>
+</select>
+<input type="submit" id="submit" />
+
+<pre>
+{{foreach from=$uSoldiers key=key item=soldier}}
+	{{if $soldier.id neq $uSoldier.id}}
+		ICON：{{$soldier.icon}}
+		士官名：<a href="soldier.php?act=combView&sid_main={{$soldier.id}}&sid_assist={{$uSoldier.id}}">{{$soldier.soldier_name}}</a>
+		士官稀有度：{{$soldier.star}}
+		士官等级：{{$soldier.level}}
+		兵器名：{{$soldier.weapon_name}}
+		攻击力：{{$soldier.attack * $soldier.weapon_count}}
+		防御力：{{$soldier.defense * $soldier.weapon_count}}
+		武器数：{{$soldier.weapon_count}}/{{$soldier.weapon_count_limit}}
+		技能名：{{$soldier.skill_name}}
+		技能等级:{{$soldier.skill_level}}
+
+		{{if $soldier.army_id neq 0}}
+		第{{$soldier.army_id}}部队
+		{{/if}}
+
+		配属成本：{{$soldier.cost}}
+		=======================================
+	{{/if}}
+{{/foreach}}
+</pre>
+</body>
+
+{{include file="../footer.html"}}

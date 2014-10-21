@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<pre>
+{{if $replaceFlag eq 1}}
+ICON：{{$oldSoldier.icon}}
+士官名称：<a href="soldier.php?op=act::show;sid::{{$oldSoldier.id}}">{{$oldSoldier.soldier_name}}</a>
+士官稀有度：{{$oldSoldier.star}}
+士官等级：{{$oldSoldier.level}}
+兵器名：{{$oldSoldier.weapon_name}}
+攻击力：{{$oldSoldier.attack * $oldSoldier.weapon_count}}
+防御力：{{$oldSoldier.defense * $oldSoldier.weapon_count}}
+武器数：{{$oldSoldier.weapon_count}}/{{$oldSoldier.weapon_count_limit}}
+技能名：{{$oldSoldier.skill_name}}
+技能等级{{$oldSoldier.skill_level}}
+第{{$oldSoldier.army_id}}部队
+配属成本：{{$oldSoldier.cost}}
+{{/if}}
+</pre>
+=======================================
+<br />
+入れ替える士官を選択
+<br />
+<select id="rule" name="rule">
+<option id="attack">攻击力</option>
+<option id="defense">防御力</option>
+</select>
+<input type="submit" id="submit" />
+
+<pre>
+{{foreach from=$uSoldiers key=key item=soldier}}
+ICON：{{$soldier.icon}}
+士官名：<a href="soldier.php?op=act::show;sid::{{$soldier.id}}">{{$soldier.soldier_name}}</a>
+士官稀有度：{{$soldier.star}}
+士官等级：{{$soldier.level}}
+兵器名：{{$soldier.weapon_name}}
+攻击力：{{$soldier.attack * $soldier.weapon_count}}
+防御力：{{$soldier.defense * $soldier.weapon_count}}
+武器数：{{$soldier.weapon_count}}/{{$soldier.weapon_count_limit}}
+技能名：{{$soldier.skill_name}}
+技能等级:{{$soldier.skill_level}}
+
+{{if $soldier.army_id neq 0}}
+第{{$soldier.army_id}}部队
+{{/if}}
+
+配属成本：{{$soldier.cost}}
+
+{{if $army_id neq 0}}
+{{if $replaceFlag eq 0}}
+<a href="soldier.php?op=act::join;aid::{{$army_id}};nid::{{$soldier.id}}">部隊に入れる</a>
+{{else}}
+<a href="soldier.php?op=act::join;aid::{{$army_id}};nid::{{$soldier.id}};oid::{{$oldSoldier.id}}">部隊に入れる</a>
+{{/if}}{{/if}}
+=======================================
+{{/foreach}}
+
+{{if $army_id neq 0}}
+<a href="army.php?op=act::show;id::{{$oldSoldier.army_id}}">部隊編成に戻る</a>
+{{/if}}
+<a href="army.php?op=act::list">部隊一覧に戻る</a>
+</pre>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<pre>
+第1部队
+{{if $uArmy_1.flag eq 1}}
+編成ｺｽﾄ：{{$uArmy_1.armyCost}}/{{$uArmy_1.uCost}}
+総攻撃力：{{$uArmy_1.attack}}
+総防御力：{{$uArmy_1.defense}}
+{{foreach from=$uArmy_1.member key=key item=soldier}}
+部队成员{{$soldier.sort}}：{{$soldier.soldier_name}}&nbsp;&nbsp;{{$soldier.weapon_count}}/{{$soldier.weapon_count_limit}}
+{{/foreach}}
+{{/if}}
+{{if $armyPageFlag eq 1}}
+<a href="army.php?op=act::show;id::{{$uArmy_1.army_id}}">部隊を編成する</a>
+<a href="army.php?op=act::auto_do;id::{{$uArmy_1.army_id}}">おまかせ編成</a>
+{{/if}}
+{{if $warPageFlag eq 1}}
+<a href="http://www.baidu.com">出撃する</a>
+{{/if}}
+====================================
+
+第2部队
+{{if $uArmy_2.flag eq 1}}
+部队成本：{{$uArmy_2.armyCost}}/{{$uArmy_2.uCost}}
+总攻击力：{{$uArmy_2.attack}}
+总防御力：{{$uArmy_2.defense}}
+{{foreach from=$uArmy_2.member key=key item=soldier}}
+部队成员{{$soldier.sort}}：{{$soldier.soldier_name}}&nbsp;&nbsp;{{$soldier.weapon_count}}/{{$soldier.weapon_count_limit}}
+{{/foreach}}
+{{if $armyPageFlag eq 1}}<a href="army.php?op=act::priority_do;id::{{$uArmy_2.army_id}}">この部隊を第１部隊に変更する</a><br />{{/if}}
+{{/if}}
+{{if $armyPageFlag eq 1}}
+<a href="army.php?op=act::show;id::{{$uArmy_2.army_id}}">部隊を編成する</a>
+<a href="army.php?op=act::auto_do;id::{{$uArmy_2.army_id}}">おまかせ編成</a>
+{{/if}}
+{{if $warPageFlag eq 1}}
+<a href="http://www.baidu.com">出撃する</a>
+{{/if}}
+====================================
+
+第3部队
+{{if $uArmy_3.flag eq 1}}
+部队成本：{{$uArmy_3.armyCost}}/{{$uArmy_3.uCost}}
+总攻击力：{{$uArmy_3.attack}}
+总防御力：{{$uArmy_3.defense}}
+{{foreach from=$uArmy_3.member key=key item=soldier}}
+部队成员{{$soldier.sort}}：{{$soldier.soldier_name}}&nbsp;&nbsp;{{$soldier.weapon_count}}/{{$soldier.weapon_count_limit}}
+{{/foreach}}
+{{if $armyPageFlag eq 1}}<a href="army.php?op=act::priority_do;id::{{$uArmy_3.army_id}}">この部隊を第１部隊に変更する</a><br />{{/if}}
+{{/if}}
+{{if $armyPageFlag eq 1}}
+<a href="army.php?op=act::show;id::{{$uArmy_3.army_id}}">部隊を編成する</a>
+<a href="army.php?op=act::auto_do;id::{{$uArmy_3.army_id}}">おまかせ編成</a>
+{{/if}}
+{{if $warPageFlag eq 1}}
+<a href="http://www.baidu.com">出撃する</a>
+{{/if}}
+====================================
+</pre>
+</body>
+</html>
